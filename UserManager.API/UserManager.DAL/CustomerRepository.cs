@@ -32,6 +32,7 @@ namespace UserManager.DAL
                 parameters.Add("@phone_number", request.phone_number);
                 parameters.Add("@description", request.description);
                 parameters.Add("@job_id", request.job_id);
+                parameters.Add("@imgUrl", request.imgUrl);
                 int id = SqlMapper.ExecuteScalar<int>(con, "Cus_CreateNewCustomer", param: parameters, commandType: CommandType.StoredProcedure);
                 return id;
             }
@@ -93,7 +94,7 @@ namespace UserManager.DAL
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@customer_id", request.customer_id);
-                parameters.Add("@firs_name", request.first_name);
+                parameters.Add("@first_name", request.first_name);
                 parameters.Add("@last_name", request.last_name);
                 parameters.Add("@gender", request.gender);
                 parameters.Add("@address", request.address);
@@ -102,6 +103,7 @@ namespace UserManager.DAL
                 parameters.Add("@phone_number", request.phone_number);
                 parameters.Add("@description", request.description);
                 parameters.Add("@job_id", request.job_id);
+                parameters.Add("@imgUrl", request.imgUrl);
                 int id = SqlMapper.ExecuteScalar<int>(con, "Cus_EditCustomer", param: parameters, commandType: CommandType.StoredProcedure);
                 return id;
             }

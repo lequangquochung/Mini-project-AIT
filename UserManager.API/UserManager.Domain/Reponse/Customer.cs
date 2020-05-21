@@ -16,6 +16,7 @@ namespace UserManager.Domain.Reponse
         public string phone_number { get; set; }
         public string description { get; set; }
         public int job_id { get; set; }
+        public string imgUrl { get; set; }
 
     }
 }

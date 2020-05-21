@@ -43,8 +43,8 @@ namespace UserManager.API.Controllers
         }
 
         // PUT: api/Jobs/5
-        [HttpPut("{id}")]
-        [Route("api/Jobs/EditJob")]
+        [HttpPut]
+        [Route("api/Jobs/EditJob/{id}")]
         public int EditJob([FromBody] EditJob request)
         {
             return _jobService.EditJob(request);

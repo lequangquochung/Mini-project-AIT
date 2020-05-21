@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UserManager.BAL.Interface;
@@ -11,6 +12,7 @@ using UserManager.Domain.Request;
 namespace UserManager.API.Controllers
 {
     [ApiController]
+   
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
@@ -53,7 +55,7 @@ namespace UserManager.API.Controllers
 
         //PUT API : Edit customer
         [HttpPut]
-        [Route("api/customer/editcustomer")]
+        [Route("api/customer/editcustomer/{id}")]
         public int EditCustomer([FromBody] EditCustomer request)
         {
             return _customerService.EditCustomer(request);
