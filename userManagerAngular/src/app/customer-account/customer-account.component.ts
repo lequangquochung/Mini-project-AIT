@@ -51,9 +51,9 @@ export class CustomerAccountComponent implements OnInit {
   }
 
   createCustomer(customer: Customer) {
-    // if(this.urlImage){
-    //   customer.imgUrl = this.urlImage;
-    // }
+    if(this.urlImage){
+      customer.imgUrl = this.urlImage;
+    }
     console.log(customer);
     this.customerAccountService.createCustomer(customer).subscribe();
   }

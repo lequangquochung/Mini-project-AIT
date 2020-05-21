@@ -37,10 +37,7 @@ createCustomer(customer: Customer){
 }
 
 
-deleteCustomer(customer_id: number): Observable<void> {
-  return this.http.delete<void>(`${environment.apiBaseURL}/customer/deletecustomer/${customer_id}`);
-      
-}
+
 
 
 // putCustomer(customer: Customer){

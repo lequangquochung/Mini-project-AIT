@@ -27,54 +27,61 @@ export class CustomerEditComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    // const customer_id = +this.route.snapshot.paramMap.get('customer_id');
-    // console.log(`this.route.snapshot.paramMap = ${JSON.stringify(this.route.snapshot.paramMap)}`);
-    //  this.customerAccountService.getCustomerById(customer_id).subscribe((customer) => { 
-    //   this.customerForm = this.fb.group({
-    //     first_name: [customer.first_name, Validators.required],
-    //     last_name: [customer.last_name, Validators.required],
-    //     gender: ['Male'],
-    //     address: [customer.address, Validators.required],
-    //     city: [customer.city, Validators.required],
-    //     email: [customer.email, Validators.required],
-    //     phone_number: [customer.phone_number, Validators.required],
-    //     description: [customer.description, Validators.required],
-    //     job_id: [1],
-    //     imgUrl: [customer.imgUrl]
-    //   });
-    //  });
+    const customer_id = +this.route.snapshot.paramMap.get('customer_id');
+    console.log(`this.route.snapshot.paramMap = ${JSON.stringify(this.route.snapshot.paramMap)}`);
+     this.customerAccountService.getCustomerById(customer_id).subscribe((customer) => { 
+      this.customerForm = this.fb.group({
+        first_name: [customer.first_name, Validators.required],
+        last_name: [customer.last_name, Validators.required],
+        gender: ['Male'],
+        address: [customer.address, Validators.required],
+        city: [customer.city, Validators.required],
+        email: [customer.email, Validators.required],
+        phone_number: [customer.phone_number, Validators.required],
+        description: [customer.description, Validators.required],
+        job_id: [1],
+        imgUrl: [customer.imgUrl]
+      });
+      if(customer.imgUrl !== null ){
+        this.urlImage = customer.imgUrl;
+      }
+      else{
+        customer.imgUrl = '../assets/img/default.png';
+      }
+     
+     });
 
-    // //job Service
-    // this.jobService.getJobList().subscribe(
-    //   res => this.jobList = res as []
-    // );
+    //job Service
+    this.jobService.getJobList().subscribe(
+      res => this.jobList = res as []
+    );
   }
 
-  // onFormSubmit() {
-  //   let customer = this.customerForm.value;
-  //   this.createCustomer(customer);
-  //   alert("successfully")
-  //   this.customerForm.reset();
-  // }
+  onFormSubmit() {
+    let customer = this.customerForm.value;
+    this.createCustomer(customer);
+    alert("successfully")
+    this.customerForm.reset();
+  }
 
-  // createCustomer(customer: Customer) {
-  //   if(this.urlImage){
-  //     customer.imgUrl = this.urlImage;
-  //   }
-  //   console.log(customer);
-  //   this.customerAccountService.createCustomer(customer).subscribe();
-  // }
+  createCustomer(customer: Customer) {
+    if(this.urlImage){
+      customer.imgUrl = this.urlImage;
+    }
+    console.log(customer);
+    this.customerAccountService.createCustomer(customer).subscribe();
+  }
 
   
-  // onSelectFile(event) {
-  //   if (event.target.files && event.target.files[0]) {
-  //     var reader = new FileReader();
-  //     reader.readAsDataURL(event.target.files[0]);
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
 
-  //     reader.onload = (event) => {
-  //       this.urlImage = (event.target as any).result;
-  //     }
-  //   }
-  // }
+      reader.onload = (event) => {
+        this.urlImage = (event.target as any).result;
+      }
+    }
+  }
 
 }
