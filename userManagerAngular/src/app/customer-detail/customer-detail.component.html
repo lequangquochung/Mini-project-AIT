@@ -18,6 +18,7 @@
     <button type="submit" class="btn btn-secondary mt-3" [disabled]="">
       <a routerLink="/Customerdetail/{{customer.customer_id}}/edit">Edit</a>
     </button>
+    <button class="btn btn-danger" title="Delete Customer" (click)="deleteCustomer(customer.customer_id)">Delete</button>
   </div>
 </div>
 

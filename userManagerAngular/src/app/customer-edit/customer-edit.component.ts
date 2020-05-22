@@ -13,6 +13,7 @@ import { Location } from '@angular/common';
 })
 export class CustomerEditComponent implements OnInit {
   jobList = [];
+  customerList: Customer[] = [];
   // customerForm: FormArray = this.fb.array([]);
   customerForm: FormGroup;
   urlImage: any;
@@ -31,6 +32,7 @@ export class CustomerEditComponent implements OnInit {
     console.log(`this.route.snapshot.paramMap = ${JSON.stringify(this.route.snapshot.paramMap)}`);
      this.customerAccountService.getCustomerById(customer_id).subscribe((customer) => { 
       this.customerForm = this.fb.group({
+        customer_id: [customer.customer_id, Validators.required],
         first_name: [customer.first_name, Validators.required],
         last_name: [customer.last_name, Validators.required],
         gender: ['Male'],
@@ -45,10 +47,6 @@ export class CustomerEditComponent implements OnInit {
       if(customer.imgUrl !== null ){
         this.urlImage = customer.imgUrl;
       }
-      else{
-        customer.imgUrl = '../assets/img/default.png';
-      }
-     
      });
 
     //job Service
@@ -59,9 +57,10 @@ export class CustomerEditComponent implements OnInit {
 
   onFormSubmit() {
     let customer = this.customerForm.value;
-    this.createCustomer(customer);
+    console.log(this.customerForm.value);
+    this.customerAccountService.editCustomer(customer).subscribe();
     alert("successfully")
-    this.customerForm.reset();
+    // this.customerForm.reset();
   }
 
   createCustomer(customer: Customer) {
@@ -70,6 +69,21 @@ export class CustomerEditComponent implements OnInit {
     }
     console.log(customer);
     this.customerAccountService.createCustomer(customer).subscribe();
+  }
+
+  // loadMembers() {
+  //   this.customerAccountService.getCustomerList()
+  //     // .map(this.extractData)
+  //     .subscribe(
+  //       (data => {
+  //         this.customerList = data;
+  //       })
+  //     )
+  // }
+
+  deleteCustomer(customer_id) {
+    this.customerAccountService.deleteCustomter(customer_id).subscribe();
+    alert("successfully");
   }
 
   
@@ -82,6 +96,11 @@ export class CustomerEditComponent implements OnInit {
         this.urlImage = (event.target as any).result;
       }
     }
+  }
+
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

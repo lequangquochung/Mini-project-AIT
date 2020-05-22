@@ -38,7 +38,6 @@ export class CustomerAccountComponent implements OnInit {
       imgUrl: ['']
     });
 
-
     this.jobService.getJobList().subscribe(
       res => this.jobList = res as []
     );

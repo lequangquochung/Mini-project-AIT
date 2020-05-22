@@ -1,13 +1,20 @@
+
+
 <div class="container">
-  <div class="parent" *ngFor="let item of customer">
+  
+  <div class="row">
+    
+  </div>
+  <div class="parent" *ngFor="let item of customer | paginate:{itemsPerPage: 5,currentPage:p}; let i = index">
     <div class="row">
       <div class="column">
         <div class="card">
-          <img *ngIf="item.imgUrl" src="{{item.imgUrl}}" height="100" width="100">
-          <img src="{{item.imgUrl}}" height="100" width="100">
+          <!-- <img *ngIf="item.imgUrl" src="{{item.imgUrl}}" height="100" width="100">
+          <img src="{{item.imgUrl}}" height="100" width="100"> -->
           <div class="container">
             <h2 hidden>{{item.customer_id}}</h2>
             <p class="title">{{item.last_name}}</p>
+            <p class="title">{{item.first_name }}</p>
             <p>{{item.address}}</p>
             <p><button class="button">
               <a routerLink="/Customerdetail/{{item.customer_id}}">Contact</a> 
@@ -17,4 +24,6 @@
       </div>
     </div>
   </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
+

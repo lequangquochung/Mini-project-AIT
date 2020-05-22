@@ -1,5 +1,5 @@
 <div class="container">
-  <form  [formGroup]="customerForm" (ngSubmit)="onFormSubmit()">
+  <form class="form-group"  [formGroup]="customerForm" (ngSubmit)="onFormSubmit()">
       <input type=text class="form-control" name="customer_id" hidden>
       <div class="row">
           <div class="col-md-4">
@@ -22,7 +22,7 @@
               <label>City</label>
               <input type="text" class="form-control" formControlName="city">
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4">+
               <label>Email</label>
               <input type="text" class="form-control" formControlName="email">
           </div>

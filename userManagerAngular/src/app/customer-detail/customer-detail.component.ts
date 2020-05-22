@@ -27,7 +27,10 @@ export class CustomerDetailComponent implements OnInit {
     console.log(`this.route.snapshot.paramMap = ${JSON.stringify(this.route.snapshot.paramMap)}`);
     this.customerAccountService.getCustomerById(customer_id).subscribe(customer => this.customer = customer);       
   }
-
+  deleteCustomer(customer_id) {
+    this.customerAccountService.deleteCustomter(customer_id).subscribe();
+    alert("successfully");
+  }
   
   goBack(){
     this.location.back();

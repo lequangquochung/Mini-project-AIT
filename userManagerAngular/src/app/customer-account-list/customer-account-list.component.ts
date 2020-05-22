@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import {Customer} from '../Models/customer.model';
 
 import {CustomerAccountComponent} from '../customer-account/customer-account.component';
 //service
 import {CustomerAccountService} from '../shared/customer-account.service';
 import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-customer-account-list',
@@ -14,6 +16,12 @@ import { Observable } from 'rxjs';
 export class CustomerAccountListComponent implements OnInit {
 
   customer: Customer[] = [];
+  
+  p: number = 1;
+
+  
+
+searchModel: string;
   constructor(private CustomerAccountService: CustomerAccountService) { }
 
   ngOnInit() {
@@ -21,8 +29,15 @@ export class CustomerAccountListComponent implements OnInit {
       (customer) => { console.log(customer)
         this.customer = customer;
       }
-    );
+    );   
   }
+  
+ 
+
+
+
+  
+
+
 
 }
-// private CustomerAccountComponent: CustomerAccountComponent

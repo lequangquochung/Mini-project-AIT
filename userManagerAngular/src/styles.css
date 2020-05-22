@@ -2,6 +2,10 @@
 *{
     
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 .elementToFadeInAndOut {
     -webkit-animation: fadeinout 2s linear forwards;
     animation: fadeinout 2s linear forwards;

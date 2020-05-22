@@ -27,8 +27,6 @@ getCustomerById (customer_id: number): Observable<Customer>{
   );
 }
 
-
-
 createCustomer(customer: Customer){
   const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -36,11 +34,32 @@ createCustomer(customer: Customer){
   return this.http.post(environment.apiBaseURL + '/customer/createnewcustomer',customer);
 }
 
+editCustomer(customer: Customer){
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+  return this.http.put(environment.apiBaseURL + '/customer/editcustomer',customer);
+}
 
+deleteCustomter(customer_id: number) {
+  return this.http.delete(environment.apiBaseURL+ '/customer/deletecustomer/'+ customer_id);
+}
 
+searchCustomer(term: string){
+  return this.http.get<Customer[]>(environment.apiBaseURL+'/customer/AllCustomer',{params: {searchTerm: term}});
+}
 
-
-// putCustomer(customer: Customer){
-//   return this.http.put(environment.apiBaseURL + 'customer/editcustomer/'+ customer.customer_id, customer);
+// searchCustomer(typepString: string): Observable<Customer[]>{
+//   if(!typepString.trim()){
+//     return of([]);
+//   }
+//   return this.http
 // }
+
+
+
+
+
+
+
 }

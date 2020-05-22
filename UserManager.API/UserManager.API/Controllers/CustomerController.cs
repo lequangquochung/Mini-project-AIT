@@ -55,7 +55,7 @@ namespace UserManager.API.Controllers
 
         //PUT API : Edit customer
         [HttpPut]
-        [Route("api/customer/editcustomer/{id}")]
+        [Route("api/customer/editcustomer")]
         public int EditCustomer([FromBody] EditCustomer request)
         {
             return _customerService.EditCustomer(request);
