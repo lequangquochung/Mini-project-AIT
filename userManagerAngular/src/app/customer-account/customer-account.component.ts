@@ -20,6 +20,7 @@ export class CustomerAccountComponent implements OnInit {
   customerForm: FormGroup;
   urlImage: any;
   base64textString: string;
+  display  = false
   constructor(private jobService: JobService,
               private customerAccountService: CustomerAccountService,
               private fb: FormBuilder) { }
@@ -46,7 +47,7 @@ export class CustomerAccountComponent implements OnInit {
   onFormSubmit() {
     let customer = this.customerForm.value;
     this.createCustomer(customer);
-    this.customerForm.reset();
+  
   }
 
   createCustomer(customer: Customer) {
@@ -55,6 +56,7 @@ export class CustomerAccountComponent implements OnInit {
     }
     console.log(customer);
     this.customerAccountService.createCustomer(customer).subscribe();
+    this.customerForm.reset();
   }
 
   onSelectFile(event) { // called each time file input changes

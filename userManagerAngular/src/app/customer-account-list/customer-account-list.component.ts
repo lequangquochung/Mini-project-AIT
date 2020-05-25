@@ -18,7 +18,7 @@ export class CustomerAccountListComponent implements OnInit {
   customer: Customer[] = [];
   
   p: number = 1;
-
+  job_name : string;
   
 
 searchModel: string;
@@ -31,6 +31,8 @@ searchModel: string;
       }
     );   
   }
+
+  
   
  
 

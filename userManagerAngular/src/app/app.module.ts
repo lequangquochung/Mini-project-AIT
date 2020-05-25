@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
+// 
+
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +30,7 @@ import { CustomerEditComponent } from './customer-edit/customer-edit.component';
       DashboardComponent,
       CustomerDetailComponent,
       CustomerEditComponent,
+     
       
    ],
    imports: [

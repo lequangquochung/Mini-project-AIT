@@ -49,12 +49,6 @@ searchCustomer(term: string){
   return this.http.get<Customer[]>(environment.apiBaseURL+'/customer/AllCustomer',{params: {searchTerm: term}});
 }
 
-// searchCustomer(typepString: string): Observable<Customer[]>{
-//   if(!typepString.trim()){
-//     return of([]);
-//   }
-//   return this.http
-// }
 
 
 
