@@ -1,7 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {Customer} from '../Models/customer.model';
+import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 
+
+
+import {Customer} from '../Models/customer.model';
 import {CustomerAccountComponent} from '../customer-account/customer-account.component';
 //service
 import {CustomerAccountService} from '../shared/customer-account.service';
@@ -22,15 +26,47 @@ export class CustomerAccountListComponent implements OnInit {
   
 
 searchModel: string;
-  constructor(private CustomerAccountService: CustomerAccountService) { }
+  constructor(private customerAccountService: CustomerAccountService,
+              private location: Location) { }
 
   ngOnInit() {
-    this.CustomerAccountService.getCustomerList().subscribe(
+    this.customerAccountService.getCustomerList().subscribe(
       (customer) => { console.log(customer)
         this.customer = customer;
       }
     );   
   }
+
+  deleteCustomer(customer_id) {
+    this.cancel();
+    this.customerAccountService.deleteCustomter(customer_id).subscribe();    
+  }
+
+  cancel(): void {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted!',
+          'success'
+        ),
+        this.ngOnInit();
+      }
+    })
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
 
   
   

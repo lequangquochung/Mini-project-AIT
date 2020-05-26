@@ -48,14 +48,11 @@
           <button type="button" class="btn btn-primary editBtn">
             <a routerLink="/Customerdetail/{{item.customer_id}}">Contact</a>
           </button>
-          <button type="button" class="btn btn-danger delBtn">
-            <a routerLink="/Customerdetail/{{item.customer_id}}">Contact</a>
+          <button type="button" class="btn btn-danger delBtn" (click)="deleteCustomer(item.customer_id)">
+            Delete
           </button>
-
         </div>
-
       </div>
-
     </div>
   </div>
   <pagination-controls (pageChange)="p = $event"></pagination-controls>

@@ -2,6 +2,7 @@
 body{
     background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
 }
+
 .contact-form{
     background: #fff;
     margin-top: 10%;
@@ -11,6 +12,7 @@ body{
     -webkit-box-shadow: 11px 3px 17px -11px rgba(0,0,0,0.62);
     -moz-box-shadow: 11px 3px 17px -11px rgba(0,0,0,0.62);
     box-shadow: 11px 3px 17px -11px rgba(0,0,0,0.62);
+    position: relative;
 }
 .contact-form .form-control{
     border-radius:1rem;
@@ -54,8 +56,18 @@ input[type="file"] {
 
 button[type="submit"]{
     border-radius: 1rem;
-    width: 250px;
+    width: 150px;
     height: 50px;
+    margin-left: 10px;
 }
+button[type="button"]{
+   
+    border-radius: 1rem;
+    width: 150px;
+    height: 50px;
+    margin-left: 10px;
+  
+}
+
 
 
