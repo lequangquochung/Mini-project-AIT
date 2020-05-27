@@ -10,6 +10,6 @@ namespace UserManager.Domain.Reponse
         public string job_code { get; set; }
         public string job_name { get; set; }
         public string job_description { get; set; }
-        public int TotalCustomer { get; set; }
+        public int totalCustomer { get; set; }
     }
 }

@@ -22,8 +22,7 @@ export class CustomerAccountComponent implements OnInit {
   customerForm: FormGroup;
   urlImage: any;
   base64textString: string;
-  display = false
-  title
+
 
 
   constructor(private jobService: JobService,
@@ -49,7 +48,6 @@ export class CustomerAccountComponent implements OnInit {
       res => this.jobList = res as []
     );
 
-
   }
 
   onFormSubmit() {
@@ -66,7 +64,6 @@ export class CustomerAccountComponent implements OnInit {
     this.customerAccountService.createCustomer(customer).subscribe();
     this.successfully();
     this.customerForm.reset();
-  
   }
 
   onSelectFile(event) { // called each time file input changes
@@ -98,7 +95,7 @@ export class CustomerAccountComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes'
     }).then((result) => {
-      if (result.value) {   
+      if (result.value) {
         this.location.back();
       }
     })

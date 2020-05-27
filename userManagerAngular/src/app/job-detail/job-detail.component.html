@@ -1,0 +1,42 @@
+<!-- <div class="container contact-form">
+  <div class="contact-image">
+    <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+  </div> 
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Description</th>
+        <th scope="col">Job ID</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of customer | paginate:{itemsPerPage: 5 ,currentPage:p}; let i = index;">
+        <td scope="row" >{{i+1}}</td>
+        <td>{{item.first_name}}</td>
+        <td>{{item.last_name}}</td>
+        <td>{{item.gender}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.city}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.phone_number}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.job_id}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-md-4 mt-5 pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>    
+  </div> 
+</div>
+ -->

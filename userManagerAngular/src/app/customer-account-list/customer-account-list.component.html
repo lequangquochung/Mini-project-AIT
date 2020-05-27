@@ -1,36 +1,11 @@
-<!-- <div class="container">
-  <div class="row">
-  </div>
-  <div class="parent" *ngFor="let item of customer | paginate:{itemsPerPage: 5,currentPage:p}; let i = index">
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <img *ngIf="item.imgUrl" src="{{item.imgUrl}}" height="100" width="100">
-          <img src="{{item.imgUrl}}" height="100" width="100">
-          <div class="container">
-            <h2 hidden>{{item.customer_id}}</h2>
-            <p class="title">{{item.last_name}}</p>
-            <p class="title">{{item.first_name }}</p>
-            <p>{{item.address}}</p>
-            <p><button class="button">
-                <a routerLink="/Customerdetail/{{item.customer_id}}">Contact</a>
-              </button></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
-</div>
- -->
+
 
 <div class="container">
-  <div class="row parent" height="500px">
+  <div class="row parent">
     <div class="col-md-3 card-items"
       *ngFor="let item of customer | paginate:{itemsPerPage: 8,currentPage:p}; let i = index">
       <h4 class="py-lg-4 pb-4 text-center"></h4>
       <div class="card card-cascade narrower mb-4" style="margin-top: 58px">
-
         <div class="view view-cascade">
           <img *ngIf="item.imgUrl" src="{{item.imgUrl}}" height="232" width="254">
           <img *ngIf="item.imgUrl === null" src="./../../assets//img/unnamed.jpg" height="232" width="254">
@@ -46,7 +21,7 @@
         </div>
         <div class="d-flex justify-content-center">
           <button type="button" class="btn btn-primary editBtn">
-            <a routerLink="/Customerdetail/{{item.customer_id}}">Contact</a>
+            <a routerLink="/customerdetail/{{item.customer_id}}">Contact</a>
           </button>
           <button type="button" class="btn btn-danger delBtn" (click)="deleteCustomer(item.customer_id)">
             Delete
@@ -54,6 +29,10 @@
         </div>
       </div>
     </div>
-  </div>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>  
+  <footer>
+    <div class="col-md-4 mt-5 pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>   
+  </footer>
 </div>

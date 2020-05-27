@@ -1,15 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
-
-
-
-import {Customer} from '../Models/customer.model';
-import {CustomerAccountComponent} from '../customer-account/customer-account.component';
+//
+import { Customer } from '../Models/customer.model';
 //service
-import {CustomerAccountService} from '../shared/customer-account.service';
-import { Observable } from 'rxjs';
+import { CustomerAccountService } from '../shared/customer-account.service';
+
 
 
 @Component({
@@ -20,26 +17,24 @@ import { Observable } from 'rxjs';
 export class CustomerAccountListComponent implements OnInit {
 
   customer: Customer[] = [];
-  
-  p: number = 1;
-  job_name : string;
-  
 
-searchModel: string;
+  p: number = 1;
+  
   constructor(private customerAccountService: CustomerAccountService,
               private location: Location) { }
 
   ngOnInit() {
     this.customerAccountService.getCustomerList().subscribe(
-      (customer) => { console.log(customer)
+      (customer) => {
+        console.log(customer)
         this.customer = customer;
       }
-    );   
+    );
   }
 
   deleteCustomer(customer_id) {
     this.cancel();
-    this.customerAccountService.deleteCustomter(customer_id).subscribe();    
+    this.customerAccountService.deleteCustomter(customer_id).subscribe();
   }
 
   cancel(): void {
@@ -58,7 +53,7 @@ searchModel: string;
           'Your file has been deleted!',
           'success'
         ),
-        this.ngOnInit();
+          this.ngOnInit();
       }
     })
   }
@@ -68,13 +63,13 @@ searchModel: string;
   }
 
 
-  
-  
- 
 
 
 
-  
+
+
+
+
 
 
 

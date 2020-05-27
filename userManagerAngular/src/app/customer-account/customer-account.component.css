@@ -2,6 +2,10 @@
 body{
     background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 
 .contact-form{
     background: #fff;

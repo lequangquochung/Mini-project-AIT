@@ -1,0 +1,59 @@
+<div class="container contact-form">
+  <div class="contact-image">
+    <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+    <h1>CREATE NEW JOB</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <button type="button" class="btn btn-success">
+        <a routerLink="/createjob"><i class="fas fa-plus-square"></i></a>
+      </button>
+    </div>
+  </div>
+  <div>
+    <table class="table table-striped css-serial">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Code</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">TotalCustomer</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of job | paginate:{itemsPerPage: 5 ,currentPage:p}; let i = index">
+          <!-- <td scope="row" hidden>{{item.job_id}}</td> -->
+          <td scope="row"></td>
+          <td>{{item.job_code}}</td>
+          <td>{{item.job_name}}</td>
+          <td>{{item.job_description}}</td>
+          <td>{{item.totalCustomer}}</td>
+          <td>
+            <div class="row">
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary ">
+                  <a routerLink="/jobdetail/{{item.job_id}}">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                </button>
+                <button type="submit" class="btn btn-danger " (click)="deleteJob(item.job_id)" >
+                  <i class="fas fa-trash-alt"></i>  
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>      
+      </tbody>
+    </table>   
+    <div class="row">
+      <div class="col-md-4 mt-5 pagination">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>    
+    </div> 
+  </div>  
+</div>
+
+
+
