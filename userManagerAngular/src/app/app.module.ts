@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,9 +24,7 @@ import { JobEditComponent } from './job-edit/job-edit.component';
 import { JobDetailComponent } from './job-detail/job-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Material Modules
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -43,9 +42,7 @@ import {MatSortModule} from '@angular/material/sort';
       JobListComponent,
       JobEditComponent,
       JobDetailComponent,
-      MatTableModule,
-      MatPaginatorModule,
-      MatSortModule
+      
    ],
    imports: [
       BrowserModule,
@@ -55,7 +52,10 @@ import {MatSortModule} from '@angular/material/sort';
       ReactiveFormsModule,
       Ng2SearchPipeModule,
       NgxPaginationModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      MatTableModule
+     
+      
    ],
    providers: [
       CustomerAccountService,
